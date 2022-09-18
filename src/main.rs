@@ -37,7 +37,7 @@ struct MyClientHook {}
 impl<X: XConn> Hook<X> for MyClientHook {
     fn new_client(&mut self, wm: &mut WindowManager<X>, id: Xid) -> Result<()> {
         let c = wm.client(&Selector::WinId(id)).unwrap();
-        info!("new client with WM_CLASS='{}'", c.wm_class());
+        info!("new client with WM_CLASS='{}' WM_NAME='{}'", c.wm_class(), c.wm_name());
         Ok(())
     }
 }
