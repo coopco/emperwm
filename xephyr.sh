@@ -10,7 +10,7 @@ Xephyr +extension RANDR -screen ${SCREEN_SIZE} ${XDISPLAY} -ac &
 XEPHYR_PID=$!
 
 sleep 1
-env DISPLAY=${XDISPLAY} "$CUR_DIR/target/debug/Eihwaz" &
+env DISPLAY=${XDISPLAY} "$CUR_DIR/target/debug/emperwm" &
 WM_PID=$!
 
 trap "kill $XEPHYR_PID && kill $WM_PID" SIGINT SIGTERM exit
